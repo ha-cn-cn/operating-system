@@ -395,7 +395,7 @@ jobs:
 
   update_index:
     name: Update artifacts index
-    if: ${{ github.event_name != 'release' && needs.prepare.outputs.publish_build == 'true' }}
+    if: ${{ github.event_name == 'release'}}
     needs: [ build, prepare ]
     uses: ha-cn-cn/operating-system/.github/workflows/artifacts-index.yaml@dev
     with:
